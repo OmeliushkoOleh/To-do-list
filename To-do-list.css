@@ -1,0 +1,193 @@
+body {
+    margin: 0px;
+}
+
+.header {
+    font-size: 2em;
+    width: 600px;
+    height: 100px;
+    background-color: white;
+}
+
+.top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border: solid black 1px;
+}
+
+.status-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    height: 50px;
+    border: solid black 1px;
+}
+
+.status-container .status:last-child {
+    border: none
+}
+
+.status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% / 3);
+    height: 50px;
+    border-right: solid black 2px;
+}
+
+.add-new {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 5px;
+    left: 620px;
+    width: 200px;
+    height: 60px;
+    background-color: antiquewhite;
+}
+
+.add-new:hover {
+    background-color: rgb(240, 211, 173);
+}
+
+.cards {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+    width: 600px;
+    height: 100%;
+}
+
+.cards-children {
+    display: flex;
+    width: 200px;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.full-card-container {
+    position: absolute;
+    top: 10%;
+    left: 620px;
+}
+
+.full-card {
+    display: flex;
+    background-color: rgb(5, 139, 94);
+    height: 100%;
+    width: 500px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+    align-items: center;
+}
+
+textarea {
+    resize: none;
+}
+
+.button-add {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 40px;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-add:hover {
+    cursor: pointer;
+    background-color: rgba(0, 195, 255, 0.924);
+}
+
+.button-del {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    color: white;
+    background-color: rgb(5, 139, 94);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
+.button-del:hover {
+    cursor: pointer;
+    background-color: rgba(255, 0, 0, 0.924);
+}
+
+.status-in-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.card {
+    margin-top: 5px;
+    display: flex;
+    width: 180px;
+    height: 180px;
+    background-color: blue;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: rotate(4deg) scale(1.05);
+}
+
+.name-of-field {
+    font-size: 1.5em;
+    color: navy;
+}
+
+.ERR {
+    border: solid red 3px;
+    outline-color: red !important;
+}
+
+.textareaContainet {
+    width: 165;
+    height: 51px;
+}
+
+.eror-text {
+    font-size: 1em;
+    color: red;
+}
+
+.status-in-card input,
+.priority-in-card input {
+    height: 15px;
+    width: 15px;
+}
+
+.rotated-1 {
+    transform: rotate(-5deg);
+}
+
+.rotated-2 {
+    transform: rotate(5deg);
+}

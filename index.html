@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>To do list</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./To-do-list.css'>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
+    </script>
+
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js" integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous">
+    </script>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="top">
+            My Work Day
+        </div>
+        <div class="status-container">
+            <div class="status">
+                TODO
+            </div>
+            <div class="status">
+                In Progress
+            </div>
+            <div class="status">
+                Done
+            </div>
+        </div>
+    </div>
+
+
+    <div onclick="createNewTask()" class="add-new">
+        Новая задача
+    </div>
+
+
+    <div class="cards">
+        <div id="todo" class="cards-children todo">
+
+        </div>
+        <div id="in-progress" class="cards-children in-progress">
+
+        </div>
+        <div id="done" class="cards-children done">
+
+        </div>
+    </div>
+
+
+    <div id="full-card-container" class="full-card-container"></div>
+
+    <script id="card" type="text/x-jquery-tmpl">
+        <div onclick="showFullCard(${id})" class="card ${rotation(priorityStatus, deadLine, id)}">
+            <span> ${nameOfTask}</span>
+            <span> Приоритет: ${priorityStatus}</span>
+            <span> Дедлайн: ${deadLine}</span>
+        </div>
+    </script>
+
+    <script id="full-card" type="text/x-jquery-tmpl">
+        <div class="full-card">
+
+            <span class="name-of-field"> Название</span>
+
+            <div class="eror-text" id="nameOfTaskErr"></div>
+            <div class="textareaContainet">
+                <textarea id="nameOfTask" oninput="replacer(event), validateNameOfTask(event)" cols="19" rows="3" maxlength="55">${fillNameOfTask (this.data.nameOfTask)}</textarea>
+            </div>
+            </br>
+
+            <div class="status-in-card">
+                <span class="name-of-field">Статус</span>
+                <label><span> ToDo <input type="radio"  value="ToDo" name="progress" ${isCheckedProgress(this.data.progressStatus,"ToDo")}></br></span></label>
+                <label><span> In Progress <input type="radio" value="InProgress" name="progress" ${isCheckedProgress(this.data.progressStatus,"InProgress")}> </br></span></label>
+                <label><span>  Done <input type="radio" value="Done" name="progress" ${isCheckedProgress(this.data.progressStatus,"Done")}></span></label>
+            </div>
+
+            <span class="name-of-field">Описание</span>
+            <div class="eror-text" id="descriptionOfTaskErr"></div>
+            <textarea id="descriptionOfTask" oninput="replacer(event), validateDescriptionOfTask (event)" cols="40" rows="6" maxlength="255">${fillDescriptionOfTask (this.data.descriptionOfTask)}</textarea>
+
+            <div class="priority-in-card">
+                <span class="name-of-field"> Приоритет</span></br>
+                <label>Высокий <input type="radio" value="Высокий" name="priority" ${isChecked(this.data.priorityStatus, "Высокий")}></br></label>
+                <label>Средний <input type="radio" value="Средний" name="priority" ${isChecked(this.data.priorityStatus, "Средний")}> </br></label>
+                <label>Низкий <input type="radio" value="Низкий" name="priority" ${isChecked(this.data.priorityStatus, "Низкий")}></label>
+            </div>
+            </br>
+
+            <span class="name-of-field">Дедлайн</span> <input type="text" id="datepicker" value="${deadLine}">
+
+            <div onclick="addTask()" class="button-add"> Сохранить </div>
+
+            <div onclick="deleteTask()" class="button-del"> &#10006 </div>
+        </div>
+    </script>
+
+
+</body>
+<script src='./To-do-list.js'></script>
+
+</html>
